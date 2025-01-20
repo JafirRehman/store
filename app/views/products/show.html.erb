@@ -9,3 +9,9 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+
+<h2>All Comments</h2>
+<%= render @product.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form'%>

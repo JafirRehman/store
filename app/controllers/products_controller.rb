@@ -37,6 +37,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
+    
+    binding.pry
+    
     @product.destroy
 
     redirect_to root_path, status: :see_other
@@ -44,6 +47,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(:name, :status)
     end
 end

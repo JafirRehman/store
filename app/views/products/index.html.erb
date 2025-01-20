@@ -1,15 +1,20 @@
 <h1>this is home page</h1>
 
-
+Our <%= Product.public_count %> products are public!
+<br>
+Our <%= Comment.public_count %> comments are public!
+<br>
+<h2>all products</h2>
 <div id="products">
   <% @products.each do |product| %>
-    <div>
-        <a href="/products/<%= product.id %>">
+    <% unless product.archived? %>
+      <div>
+          <a href="/products/<%= product.id %>">
             <%= product.name %>
-        </a>
-    </div>
+          </a>
+      </div>
+    <%end%>  
   <% end %>
-
+<br>
   <%= link_to "Create New Product", new_product_path%>
-
 </div>
